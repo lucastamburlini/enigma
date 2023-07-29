@@ -32,13 +32,14 @@
         </div>
         <div class="numberEntered">
 
-            <p>Elige un número del 1 al 100</p>
-            <input id="numberUser" />
+
+            <label for="numberUser">Elige un número del 1 al 100</label>
+            <input id="numberUser" name="numberUser" type="number" min="1" max="100" />
             <button class="button" id="buttonTry">Adivinar</button>
 
 
-            <p id="clueMessage">¡Haz un intento para empezar!</p>
-
+            <p id="clueMessage">¡Tienes 5 intentos!</p>
+            <div>Restantes: <span id="attempts">5</span></div>
 
             <p id="resultMessage">¡Buena suerte!</p>
 
