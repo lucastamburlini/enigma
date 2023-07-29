@@ -8,13 +8,15 @@
   --text-primary-color: #ffffff;
   --primary-color: #ff7eb7;
   --secondary-color: #02ffb2;
-  --datails-color: #8298fd;
+  --third-color: #8298fd;
+  --details-color: #ffd700;
 
-  --font-family-base: "Indie Flower", cursive;
+  --font-family-base: "Gloria Hallelujah", cursive;
 }
 
 html {
   height: 100%;
+  width: 100%;
 }
 
 body {
@@ -22,10 +24,45 @@ body {
   background-color: var(--bg-color);
   color: var(--text-primary-color);
   height: 100%;
+  width: 90%;
+  margin: auto;
   background-image: url(./assets/bg.jpg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-size: 1.125rem;
+}
+
+h1 {
+  font-size: 3rem;
+  color: var(--details-color);
+  font-weight: 900;
+  padding-bottom: 25px;
+}
+
+.button {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 2px solid var(--details-color);
+  border-radius: 50px;
+  cursor: pointer;
+  color: var(--text-primary-color);
+  background-image: linear-gradient(
+    to right,
+    var(--primary-color),
+    var(--secondary-color),
+    var(--third-color)
+  );
+  transition: background-image 6;
+}
+
+.button:hover {
+  background-image: linear-gradient(
+    to right,
+    var(--third-color),
+    var(--secondary-color),
+    var(--primary-color)
+  );
 }
 
 /* Welcome Screen */
@@ -41,11 +78,47 @@ body {
 }
 
 .welcomeScreen img {
-  width: 200px;
+  width: 150px;
+  padding-bottom: 25px;
+}
+
+.welcomeScreen p {
+  padding-bottom: 25px;
 }
 
 /* Global styles */
 
 .gameScreen {
   display: none;
+}
+
+.secretNumber {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--secondary-color);
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+  font-size: 5rem;
+  border: 10px solid var(--secondary-color);
+}
+
+.numberEntered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 25px 0;
+}
+
+.numberEntered input {
+  text-align: center;
+  border: none;
+  width: 80px;
+  height: 60px;
+  border-radius: 20px;
+  font-size: 2rem;
+  margin: 20px;
+  color: var(--primary-color);
 }

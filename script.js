@@ -18,12 +18,16 @@ function adivinar() {
 
   const containerResult = document.getElementById("resultMessage");
 
-  if (secretNumber === numberUser) {
-    containerResult.innerHTML = "Ganaste";
-    document.getElementById("containerSecretNumber").innerHTML = secretNumber;
-  } else if (secretNumber !== numberUser) {
-    containerResult.innerHTML = "Intenta de nuevo";
-  }
+  setTimeout(() => {
+    if (secretNumber === numberUser) {
+      containerResult.innerHTML = "Ganaste";
+      document.getElementById("containerSecretNumber").innerHTML = secretNumber;
+    } else if (secretNumber !== numberUser) {
+      containerResult.innerHTML = "Intenta de nuevo";
+    } else if (secretNumber > numberUser) {
+      containerResult.innerHTML = "Intenta de nuevo";
+    }
+  }, 1000);
 }
 
 document.getElementById("buttonTry").addEventListener("click", adivinar);
