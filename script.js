@@ -21,12 +21,18 @@ function adivinar() {
   const numberUser = parseInt(document.getElementById("numberUser").value, 10);
   console.log(numberUser);
 
-  const containerResult = document.getElementById("resultMessage");
+  if (isNaN(numberUser) || numberUser < 1 || numberUser > 100) {
+    document.getElementById("clueMessage").innerHTML =
+      "Ingresa un número válido entre 1 y 100.";
+    return;
+  }
 
   if (attemptsLeft > 0) {
     attemptsLeft--;
     attemptsArray.push(numberUser);
     showAttempts();
+
+    const containerResult = document.getElementById("resultMessage");
 
     setTimeout(() => {
       if (secretNumber === numberUser) {
