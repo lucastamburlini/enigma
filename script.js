@@ -1,5 +1,6 @@
 const gameScreen = document.getElementById("gameScreen");
 const attemptsContainer = document.getElementById("attempts");
+const containerClue = document.getElementById("clueMessage");
 
 let secretNumber;
 let attemptsLeft = 5;
@@ -22,8 +23,7 @@ function adivinar() {
   console.log(numberUser);
 
   if (isNaN(numberUser) || numberUser < 1 || numberUser > 100) {
-    document.getElementById("clueMessage").innerHTML =
-      "Ingresa un número válido entre 1 y 100.";
+    containerClue.innerHTML = "Ingresa un número válido entre 1 y 100.";
     return;
   }
 
@@ -46,6 +46,18 @@ function adivinar() {
           secretNumber;
       } else {
         containerResult.innerHTML = "Intenta de nuevo";
+      }
+
+      if (secretNumber >= 1 && secretNumber <= 20) {
+        containerClue.innerHTML = "El número secreto está entre el 1 y el 20";
+      } else if (secretNumber >= 21 && secretNumber <= 40) {
+        containerClue.innerHTML = "El número secreto está entre el 21 y el 40";
+      } else if (secretNumber >= 41 && secretNumber <= 60) {
+        containerClue.innerHTML = "El número secreto está entre el 41 y el 60";
+      } else if (secretNumber >= 61 && secretNumber <= 80) {
+        containerClue.innerHTML = "El número secreto está entre el 61 y el 80";
+      } else if (secretNumber >= 81 && secretNumber <= 100) {
+        containerClue.innerHTML = "El número secreto está entre el 81 y el 100";
       }
     }, 1000);
   }
