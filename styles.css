@@ -1,0 +1,51 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --text-primary-color: #ffffff;
+  --primary-color: #ff7eb7;
+  --secondary-color: #02ffb2;
+  --datails-color: #8298fd;
+
+  --font-family-base: "Indie Flower", cursive;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: var(--font-family-base);
+  background-color: var(--bg-color);
+  color: var(--text-primary-color);
+  height: 100%;
+  background-image: url(./assets/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* Welcome Screen */
+
+.welcomeScreen,
+.gameScreen {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+
+.welcomeScreen img {
+  width: 200px;
+}
+
+/* Global styles */
+
+.gameScreen {
+  display: none;
+}

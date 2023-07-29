@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <section class="welcomeScreen" id="welcomeScreen">
+        <div>
+            <h1>Enigma</h1>
+            <p>Juego de Adivinar el Número</p>
+            <img src="./assets/enigma.png" alt="Logo de Enigma">
+        </div>
+        <div>
+            <p>¿Puedes adivinar el número del 1 al 100?</p>
+            <button id="buttonStart">Comenzar</button>
+        </div>
+    </section>
+
+    <section class="gameScreen" id="gameScreen">
+        <div class="secretNumber" id="containerSecretNumber">
+            ?
+        </div>
+        <div>
+            <div>
+                <label for="numberUser">Ingresa tu número aquí:</label>
+                <input type="number" id="numberUser" />
+                <button id="buttonTry">Adivinar</button>
+            </div>
+            <div id="clue">
+                <p>Pista:</p>
+                <p id="clueMessage">¡Haz un intento para empezar!</p>
+            </div>
+            <div id="result">
+                <p>Resultado:</p>
+                <p id="resultMessage">¡Buena suerte!</p>
+            </div>
+        </div>
+    </section>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
