@@ -4,12 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Enigma</title>
     <link rel="stylesheet" href="styles.css">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+
+    <link rel="shortcut icon" href="./assets//enigma.png" type="image/x-icon">
 </head>
 
 <body>
@@ -22,12 +24,12 @@
         </div>
         <div>
 
-            <button class="button" id="buttonStart">Comenzar</button>
+            <button class="button" id="startButton">Comenzar</button>
         </div>
     </section>
 
     <section class="gameScreen" id="gameScreen">
-        
+
         <div class="numberEntered">
 
 
@@ -39,8 +41,15 @@
             <p class="clueMessage" id="clueMessage">¡Tienes 5 intentos!</p>
             <div>Restantes: <span id="attempts">5</span></div>
             <div class="previousAttempts" id="previousAttempts"></div>
-            <p id="resultMessage">¡Buena suerte!</p>
-            <div class="secretNumber" id="secretNumber"></div>
+            <p id="Message">¡Buena suerte!</p>
+
+
+    </section>
+    <section class="resultScreen" id="resultScreen">
+        <p id="resultMessage">¡Buena suerte!</p>
+        <div class="secretNumber" id="secretNumber"></div>
+        </div>
+        <button class="button" id="tryAgainButton">Jugar de nuevo</button>
         </div>
     </section>
 

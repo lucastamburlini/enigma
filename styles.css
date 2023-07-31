@@ -8,8 +8,8 @@
   --text-primary-color: #ffffff;
   --primary-color: #ff7eb7;
   --secondary-color: #02ffb2;
-  --third-color: #8298FD;
-  --details-color: #2626BC;
+  --third-color: #8298fd;
+  --details-color: #2626bc;
 
   --font-family-base: "Gloria Hallelujah", cursive;
 }
@@ -103,6 +103,9 @@ h1 {
 .clueMessage {
   height: 100px;
   margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .numberEntered input {
@@ -133,4 +136,19 @@ h1 {
   margin: 0 5px;
   background-color: var(--primary-color);
   border-radius: 50%;
+}
+
+.resultScreen {
+  display: none;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.secretNumber {
+  margin: 20px;
 }

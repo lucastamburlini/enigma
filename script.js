@@ -1,4 +1,5 @@
 const gameScreen = document.getElementById("gameScreen");
+const resultScreen = document.getElementById("resultScreen");
 const attemptsContainer = document.getElementById("attempts");
 const containerClue = document.getElementById("clueMessage");
 
@@ -7,7 +8,7 @@ let attemptsLeft = 5;
 let attemptsArray = [];
 
 function start() {
-  buttonStart.removeEventListener("click", start);
+  startButton.removeEventListener("click", start);
   attemptsLeft = 5;
   attemptsArray = [];
 
@@ -16,6 +17,23 @@ function start() {
 
   secretNumber = Math.floor(Math.random() * 100 + 1);
   console.log(secretNumber);
+}
+
+function startAgain() {
+  document.getElementById("buttonTry").disabled = false;
+
+  attemptsLeft = 5;
+  attemptsArray = [];
+
+  document.getElementById("previousAttempts").innerHTML = "";
+  document.getElementById("numberUser").value = "";
+  document.getElementById("resultScreen").style.display = "none";
+  document.getElementById("gameScreen").style.display = "flex";
+  document.getElementById("Message").innerHTML = "Vamos de nuevo";
+  document.getElementById("clueMessage").innerHTML =
+    "Tienes 5 intentos de nuevo";
+  attemptsContainer.innerHTML = attemptsLeft;
+  start();
 }
 
 function adivinar() {
@@ -32,31 +50,48 @@ function adivinar() {
     attemptsArray.push(numberUser);
     showAttempts();
 
+    const message = document.getElementById("Message");
     const containerResult = document.getElementById("resultMessage");
     const containerSecretNumber = document.getElementById("secretNumber");
-    
 
     setTimeout(() => {
       if (secretNumber === numberUser) {
-        containerResult.innerHTML = "Ganaste";
-        secretNumber;
+        containerResult.innerHTML = "¡Ganaste!";
+        containerSecretNumber.innerHTML = "El número era el " + secretNumber;
+        gameScreen.style.display = "none";
+        resultScreen.style.display = "flex";
       } else if (attemptsLeft === 0) {
-        containerResult.innerHTML =
-          "Perdiste. El número secreto era " + secretNumber;
+        containerResult.innerHTML = "Perdiste...";
+        containerSecretNumber.innerHTML =
+          "El número secreto era el " + secretNumber;
+        gameScreen.style.display = "none";
+        resultScreen.style.display = "flex";
       } else {
-        containerResult.innerHTML = "Intenta de nuevo";
+        message.innerHTML = "Intenta de nuevo";
       }
 
-      if (secretNumber >= 1 && secretNumber <= 20) {
-        containerClue.innerHTML = "El número secreto está entre el 1 y el 20";
-      } else if (secretNumber >= 21 && secretNumber <= 40) {
-        containerClue.innerHTML = "El número secreto está entre el 21 y el 40";
-      } else if (secretNumber >= 41 && secretNumber <= 60) {
-        containerClue.innerHTML = "El número secreto está entre el 41 y el 60";
-      } else if (secretNumber >= 61 && secretNumber <= 80) {
-        containerClue.innerHTML = "El número secreto está entre el 61 y el 80";
-      } else if (secretNumber >= 81 && secretNumber <= 100) {
-        containerClue.innerHTML = "El número secreto está entre el 81 y el 100";
+      if (attemptsLeft > 2) {
+        if (secretNumber >= 1 && secretNumber <= 20) {
+          containerClue.innerHTML = "El número secreto está entre el 1 y el 20";
+        } else if (secretNumber >= 21 && secretNumber <= 40) {
+          containerClue.innerHTML =
+            "El número secreto está entre el 21 y el 40";
+        } else if (secretNumber >= 41 && secretNumber <= 60) {
+          containerClue.innerHTML =
+            "El número secreto está entre el 41 y el 60";
+        } else if (secretNumber >= 61 && secretNumber <= 80) {
+          containerClue.innerHTML =
+            "El número secreto está entre el 61 y el 80";
+        } else if (secretNumber >= 81 && secretNumber <= 100) {
+          containerClue.innerHTML =
+            "El número secreto está entre el 81 y el 100";
+        }
+      } else if (attemptsLeft <= 2) {
+        if (secretNumber % 2 === 0) {
+          containerClue.innerHTML = "El número secreto es par";
+        } else {
+          containerClue.innerHTML = "El número secreto es impar";
+        }
       }
     }, 1000);
   }
@@ -79,7 +114,9 @@ function showAttempts() {
 }
 
 document.getElementById("buttonTry").addEventListener("click", adivinar);
-
 window.onload = function () {
-  document.getElementById("buttonStart").addEventListener("click", start);
+  document.getElementById("startButton").addEventListener("click", start);
+  document
+    .getElementById("tryAgainButton")
+    .addEventListener("click", startAgain);
 };
