@@ -33,17 +33,16 @@ function adivinar() {
     showAttempts();
 
     const containerResult = document.getElementById("resultMessage");
+    const containerSecretNumber = document.getElementById("secretNumber");
+    
 
     setTimeout(() => {
       if (secretNumber === numberUser) {
         containerResult.innerHTML = "Ganaste";
-        document.getElementById("containerSecretNumber").innerHTML =
-          secretNumber;
+        secretNumber;
       } else if (attemptsLeft === 0) {
         containerResult.innerHTML =
           "Perdiste. El número secreto era " + secretNumber;
-        document.getElementById("containerSecretNumber").innerHTML =
-          secretNumber;
       } else {
         containerResult.innerHTML = "Intenta de nuevo";
       }
@@ -68,9 +67,15 @@ function adivinar() {
 }
 
 function showAttempts() {
-  let attemptsText = attemptsLeft + "<br>";
-  attemptsText += "Intentos anteriores: " + attemptsArray.join(", ");
-  attemptsContainer.innerHTML = attemptsText;
+  attemptsContainer.innerHTML = attemptsLeft;
+
+  document.getElementById("previousAttempts").innerHTML = "";
+
+  for (const attempt of attemptsArray) {
+    const span = document.createElement("span");
+    span.textContent = `${attempt}`;
+    previousAttempts.appendChild(span);
+  }
 }
 
 document.getElementById("buttonTry").addEventListener("click", adivinar);

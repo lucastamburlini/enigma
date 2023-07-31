@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -27,9 +27,7 @@
     </section>
 
     <section class="gameScreen" id="gameScreen">
-        <div class="secretNumber" id="containerSecretNumber">
-            ?
-        </div>
+        
         <div class="numberEntered">
 
 
@@ -38,11 +36,11 @@
             <button class="button" id="buttonTry">Adivinar</button>
 
 
-            <p id="clueMessage">¡Tienes 5 intentos!</p>
+            <p class="clueMessage" id="clueMessage">¡Tienes 5 intentos!</p>
             <div>Restantes: <span id="attempts">5</span></div>
-
+            <div class="previousAttempts" id="previousAttempts"></div>
             <p id="resultMessage">¡Buena suerte!</p>
-
+            <div class="secretNumber" id="secretNumber"></div>
         </div>
     </section>
 

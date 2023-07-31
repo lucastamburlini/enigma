@@ -8,8 +8,8 @@
   --text-primary-color: #ffffff;
   --primary-color: #ff7eb7;
   --secondary-color: #02ffb2;
-  --third-color: #8298fd;
-  --details-color: #ffd700;
+  --third-color: #8298FD;
+  --details-color: #2626BC;
 
   --font-family-base: "Gloria Hallelujah", cursive;
 }
@@ -43,7 +43,7 @@ h1 {
 .button {
   padding: 10px 20px;
   font-size: 16px;
-  border: 2px solid var(--details-color);
+  border: 3px solid var(--details-color);
   border-radius: 50px;
   cursor: pointer;
   color: var(--text-primary-color);
@@ -53,7 +53,7 @@ h1 {
     var(--secondary-color),
     var(--third-color)
   );
-  transition: background-image 6;
+  transition: background-image;
 }
 
 .button:hover {
@@ -92,24 +92,17 @@ h1 {
   display: none;
 }
 
-.secretNumber {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: var(--secondary-color);
-  height: 150px;
-  width: 150px;
-  border-radius: 50%;
-  font-size: 5rem;
-  border: 10px solid var(--secondary-color);
-}
-
 .numberEntered {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 25px 0;
+}
+
+.clueMessage {
+  height: 100px;
+  margin: 10px 0;
 }
 
 .numberEntered input {
@@ -121,4 +114,23 @@ h1 {
   font-size: 2rem;
   margin: 20px;
   color: var(--primary-color);
+}
+
+.previousAttempts {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  height: 50px;
+  width: 285px;
+  background-color: var(--third-color);
+  border: 3px solid var(--details-color);
+  border-radius: 50px;
+}
+
+.previousAttempts span {
+  width: 40px;
+  margin: 0 5px;
+  background-color: var(--primary-color);
+  border-radius: 50%;
 }
